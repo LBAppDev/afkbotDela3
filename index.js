@@ -2,9 +2,9 @@ import mineflayer from "mineflayer";
 
 // ================= CONFIG =================
 const BOT_CONFIG = {
-  host: "minecraftdisc.aternos.me",   // example: play.example.com
-  port: 49535,
-  username: "AFK_Bot",
+  host: "sway.aternos.me",   // example: play.example.com
+  port: 12277,
+  username: "Sway",
   version: "1.20.1"
 };
 // ==========================================
