@@ -19,6 +19,19 @@ function startBot() {
   bot.once("spawn", () => {
     console.log("Bot joined the server");
 
+    // ---- Register ----
+    setTimeout(() => {
+      bot.chat(`/register ${PASSWORD}`);
+      console.log("Sent /register");
+    }, 2000);
+
+    // ---- Login ----
+    setTimeout(() => {
+      bot.chat(`/login ${PASSWORD}`);
+      console.log("Sent /login");
+    }, 4000);
+
+
     setInterval(() => {
       if (!bot || !bot.entity) return;
 
