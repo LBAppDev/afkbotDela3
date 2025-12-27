@@ -21,13 +21,13 @@ function startBot() {
 
     // ---- Register ----
     setTimeout(() => {
-      bot.chat(`/register ${PASSWORD}`);
+      bot.chat(`/register 000000`);
       console.log("Sent /register");
     }, 2000);
 
     // ---- Login ----
     setTimeout(() => {
-      bot.chat(`/login ${PASSWORD}`);
+      bot.chat(`/login 000000`);
       console.log("Sent /login");
     }, 4000);
 
