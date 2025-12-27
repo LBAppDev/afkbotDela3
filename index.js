@@ -2,10 +2,10 @@ import mineflayer from "mineflayer";
 
 // ================= CONFIG =================
 const BOT_CONFIG = {
-  host: "sway.aternos.me",   // example: play.example.com
-  port: 12277,
-  username: "Sway",
-  version: "1.20.1"
+  host: "Dla3Craft.aternos.me",   // example: play.example.com
+  port: 49489,
+  username: "Dela3",
+  version: "1.21"
 };
 // ==========================================
 
