@@ -1,0 +1,14 @@
+{
+  "name": "afkbotV2",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "type": "module",
+  "packages": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "mineflayer": "^4.33.0"
+  }
+}
