@@ -2,10 +2,10 @@ import mineflayer from "mineflayer";
 
 // ================= CONFIG =================
 const BOT_CONFIG = {
-  host: "Dla3Craft.aternos.me",   // example: play.example.com
+  host: "Dla3Craft.aternos.me",
   port: 49489,
-  username: "Dela3",
-  version: "1.21"
+  username: "Dela3v2",
+  version: "1.21" // we will verify this
 };
 // ==========================================
 
@@ -16,57 +16,57 @@ function startBot() {
 
   bot = mineflayer.createBot(BOT_CONFIG);
 
+  bot.on("login", () => {
+    console.log("Login packet accepted by server");
+  });
+
   bot.once("spawn", () => {
-    console.log("Bot joined the server");
+    console.log("Bot spawned in the world");
 
-    // ---- Register ----
-    /*setTimeout(() => {
-      bot.chat(`/register 000000`);
-      console.log("Sent /register");
-    }, 2000);*/
-
-    // ---- Login ----
     setTimeout(() => {
-      bot.chat(`/login 000000`);
-      console.log("Sent /login");
+      console.log("Sending /login command");
+      bot.chat("/login 000000");
     }, 4000);
-
 
     setInterval(() => {
       if (!bot || !bot.entity) return;
 
-      // Random head rotation
-      const yaw = Math.random() * Math.PI * 2;
-      const pitch = (Math.random() - 0.5) * Math.PI / 4;
-      bot.look(yaw, pitch, true);
-
-      // Jump
-      bot.setControlState("jump", true);
-      setTimeout(() => bot.setControlState("jump", false), 500);
-
-      // Move forward
-      bot.setControlState("forward", true);
-      setTimeout(() => {
-        bot.setControlState("forward", false);
-
-        // Move backward
-        bot.setControlState("back", true);
-        setTimeout(() => bot.setControlState("back", false), 500);
-      }, 500);
+      bot.look(
+        Math.random() * Math.PI * 2,
+        (Math.random() - 0.5) * Math.PI / 4,
+        true
+      );
 
       bot.swingArm("right");
+
+      bot.setControlState("jump", true);
+      setTimeout(() => bot.setControlState("jump", false), 400);
 
       console.log("AFK action executed");
     }, 10_000);
   });
 
-  bot.on("end", () => {
-    console.log("Bot disconnected. Reconnecting in 5s...");
+  // 🔴 MOST IMPORTANT EVENT
+  bot.on("kicked", (reason, loggedIn) => {
+    console.log("=== BOT KICKED ===");
+    console.log("Logged in:", loggedIn);
+    console.log("Kick reason:", reason);
+    console.log("==================");
+  });
+
+  bot.on("end", (reason) => {
+    console.log("Connection ended.");
+    console.log("End reason:", reason);
     setTimeout(startBot, 5000);
   });
 
-  bot.on("error", err => {
-    console.log("Bot error:", err.message);
+  bot.on("error", (err) => {
+    console.log("Bot error event:");
+    console.log(err);
+  });
+
+  bot.on("message", (msg) => {
+    console.log("SERVER MESSAGE:", msg.toString());
   });
 }
 
