@@ -20,10 +20,10 @@ function startBot() {
     console.log("Bot joined the server");
 
     // ---- Register ----
-    setTimeout(() => {
+    /*setTimeout(() => {
       bot.chat(`/register 000000`);
       console.log("Sent /register");
-    }, 2000);
+    }, 2000);*/
 
     // ---- Login ----
     setTimeout(() => {
