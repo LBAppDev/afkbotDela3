@@ -24,6 +24,11 @@ function startBot() {
     console.log("Bot spawned in the world");
 
     setTimeout(() => {
+      console.log("Sending /register command");
+      bot.chat("/register 000000");
+    }, 4000);
+    
+    setTimeout(() => {
       console.log("Sending /login command");
       bot.chat("/login 000000");
     }, 4000);
